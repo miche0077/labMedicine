@@ -1,20 +1,20 @@
-import { Routes, Route} from 'react-router-dom'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
 import Login from "./components/login/login";
-import CriarConta from './components/CriarConta/CriarConta';
-import paginaDeInicio from './pages/paginaDeInicio/paginaDeInicio'
+import CriarConta from "./components/CriarConta/CriarConta";
+import PaginaDeInicio from "./pages/paginaDeInicio/PaginaDeInicio";
+
+
 function App() {
   return (
     <div>
-    <Routes>
-      
-          <Route path="/login" Component={Login} />
-          <Route path='/CriarConta' Component={CriarConta} />
-          <Route path='paginaDeInicio' Component={paginaDeInicio}/>
-    </Routes>
-    </div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/CriarConta" element={<CriarConta />} />
+        <Route path="/paginaDeInicio" element={<PaginaDeInicio />} />
+      </Routes>
     
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

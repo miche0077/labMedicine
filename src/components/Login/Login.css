@@ -1,0 +1,84 @@
+.login-container {
+    max-width: 390px;
+    height: 360px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    margin-top: 150px;
+  }
+  
+
+  .login-title {
+    font-size: 24px;
+    font-family: Ubuntu, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2A3C34;
+  }
+  
+  
+  .form-label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-family: Ubuntu, sans-serif;
+    color: #555;
+  }
+  
+  
+  .form-input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  
+  .btn-login {
+    display: block;
+    width: 97%;
+    padding: 10px;
+    background-color: #68947E;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+
+  .criar-conta {
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+ 
+  #link-criar-conta {
+    color: #04962f;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+  
+  .esqueci-senha {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 15px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+  }
+  

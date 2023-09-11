@@ -1,7 +1,14 @@
-function paginaDeInicio(){
+import LateralMenu from "../../components/LateralMenu/LateralMenu";
+import Toolbar from "../../components/Toolbar/Toolbar";
+
+function PaginaDeInicio(){
+    return(
     <div>
-        <h1> Pagina de Inicio</h1>
+        <Toolbar />
+        <LateralMenu />   
+
     </div>
+    )
 }
 
-export default paginaDeInicio
+export default PaginaDeInicio;

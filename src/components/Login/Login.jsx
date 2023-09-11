@@ -1,6 +1,7 @@
 import {  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "./Login.css" 
 
 
 function validateEmail(email) {
@@ -12,13 +13,16 @@ function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
-
+  const esqueciSenha = () =>{
+    alert("função em construção")
+  }
   const handleEmailChange =  (e) => {
     setEmail(e.target.value);
   };
   const handleSenhaChange = (e) => {
     setSenha(e.target.value);
   };
+  
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -44,23 +48,23 @@ console.log(dadosLogin)
 
   
   return (
-    <div className="">
-      <h2>Login</h2>
+    <div className="login-container">
+      <h2 className="login-title">Login</h2>
       <form className="form-login" onSubmit={handleLogin}>
         <div className="email">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email" className="form-label">Email:</label>
           <input
             type="email"
-            id="email"
+            className="form-input"
             value={email}
             onChange={handleEmailChange}
           />
         </div>
         <div className="password">
-          <label htmlFor="password">Senha:</label>
+          <label htmlFor="password" className="form-label">Senha:</label>
           <input
             type="password"
-            id="password"
+            className="form-input"
             value={senha}
             onChange={handleSenhaChange}
           />
@@ -68,12 +72,12 @@ console.log(dadosLogin)
         <button type="submit" onClick={handleLogin} className="btn-login">
           Entrar
         </button>
-        <p>
+        <p className="criar-conta">
           Não possui uma conta?  
-            <Link to="/CriarConta">criar uma conta nova </Link>  
+            <Link to="/CriarConta" id="link-criar-conta">criar uma conta nova </Link>  
         </p>
         <div>
-            <a>
+            <a onClick={esqueciSenha} className="esqueci-senha">
               Esqueci minha senha
             </a>
         </div>
