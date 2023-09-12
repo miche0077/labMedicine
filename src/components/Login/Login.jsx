@@ -1,6 +1,7 @@
 import {  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import medical from "../../assets/images/medical.png"
 import "./Login.css" 
 
 
@@ -48,7 +49,12 @@ console.log(dadosLogin)
 
   
   return (
-    <div className="login-container">
+    <div className="container-login">
+      <div className="login-image"> 
+      <img src={medical} alt="instrumento medico" className="image-medical"/>
+      </div>
+      <div className="linha"></div>
+    <div className="login-form">
       <h2 className="login-title">Login</h2>
       <form className="form-login" onSubmit={handleLogin}>
         <div className="email">
@@ -82,6 +88,7 @@ console.log(dadosLogin)
             </a>
         </div>
       </form>
+    </div>
     </div>
   );
 }
