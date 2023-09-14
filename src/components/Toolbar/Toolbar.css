@@ -3,17 +3,21 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #004d7a; /* para garantir que esteja acima de outros elementos */
+    background-color: #68947e; 
+    color: white;
+    font-family: Ubuntu, sans-serif;
   }
   
   .user-info {
     display: flex;
     align-items: center;
+    font-size: large;
   }
   
   .user-avatar {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 120px;
     border-radius: 50%;
-    margin-left: 10px;
+    margin-left: 15px;
+   
   }

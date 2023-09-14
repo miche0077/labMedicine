@@ -1,7 +1,7 @@
 import {  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import medical from "../../assets/images/medical.png"
+import doc from "../../assets/images/doc.png"
 import "./Login.css" 
 
 
@@ -11,14 +11,14 @@ function validateEmail(email) {
 }
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUserName] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
   const esqueciSenha = () =>{
     alert("função em construção")
   }
   const handleEmailChange =  (e) => {
-    setEmail(e.target.value);
+    setUserName(e.target.value);
   };
   const handleSenhaChange = (e) => {
     setSenha(e.target.value);
@@ -27,14 +27,14 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const isValidEmail = validateEmail(email)
+    const isValidEmail = validateEmail(username)
     if(!isValidEmail){
         alert('email invalido')
         return
     }
     
     let users = JSON.parse(localStorage.getItem("users"));
-    const user = users.find((u) => u.email === email && u.senha === senha);
+    const user = users.find((u) => u.usermame === username && u.senha === senha);
     if(user){
         navigate("/paginaDeInicio")
     }else{
@@ -42,7 +42,7 @@ function Login() {
     }
   };
 const dadosLogin ={
-    email,
+    username,
     senha
 };
 console.log(dadosLogin)
@@ -51,18 +51,18 @@ console.log(dadosLogin)
   return (
     <div className="container-login">
       <div className="login-image"> 
-      <img src={medical} alt="instrumento medico" className="image-medical"/>
+      <img src={doc} alt="instrumento medico" className="image-medical"/>
       </div>
       <div className="linha"></div>
     <div className="login-form">
       <h2 className="login-title">Login</h2>
       <form className="form-login" onSubmit={handleLogin}>
         <div className="email">
-          <label htmlFor="email" className="form-label">Email:</label>
+          <label htmlFor="email" className="form-label">Nome:</label>
           <input
             type="email"
             className="form-input"
-            value={email}
+            value={username}
             onChange={handleEmailChange}
           />
         </div>

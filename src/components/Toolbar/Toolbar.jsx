@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Toolbar.css'
 
 const Toolbar = ({ pageTitle, userName, userImage }) => {
@@ -12,5 +13,9 @@ const Toolbar = ({ pageTitle, userName, userImage }) => {
     </div>
   );
 }
-
+Toolbar.propTypes = {
+  pageTitle: PropTypes.string.isRequired ,
+  userName: PropTypes.string.isRequired,
+  userImage: PropTypes.string.isRequired
+}
 export default Toolbar;

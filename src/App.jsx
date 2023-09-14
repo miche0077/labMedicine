@@ -6,11 +6,12 @@ import PaginaDeInicio from "./pages/paginaDeInicio/PaginaDeInicio";
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/CriarConta" element={<CriarConta />} />
         <Route path="/paginaDeInicio" element={<PaginaDeInicio />} />
+         
       </Routes>
     
     </div>
