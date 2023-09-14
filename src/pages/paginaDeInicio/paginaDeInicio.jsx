@@ -1,7 +1,8 @@
 import LateralMenu from "../../components/LateralMenu/LateralMenu";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import imgUser from "../../assets/images/img-user.png";
-import EstatisticasCard from "../../components/EstatisticasDoSistema/EstatisticasDoSistema";
+import EstatisticasDoSistema from "../../components/EstatisticasDoSistema/EstatisticasDoSistema";
+import InformacoesRapidasDoPaciente from "../../components/InformacoesRapidasDoPacientes/InformacoesRapidas";
 
 
 
@@ -11,7 +12,8 @@ function PaginaDeInicio(){
         
         <Toolbar userName={'lola'} pageTitle="Estatisticas e Informações" userImage={imgUser}/>
         <LateralMenu />
-        <EstatisticasCard titulo="0" valor={0}/>
+        <EstatisticasDoSistema />
+        <InformacoesRapidasDoPaciente />
     </div>
     )
 }

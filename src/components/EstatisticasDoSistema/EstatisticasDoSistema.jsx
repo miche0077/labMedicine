@@ -1,18 +1,29 @@
-import PropTypes from 'prop-types';
-import "./EstatisticasCard.css"
 
-function EstatisticasDoSistema({ titulo, valor }) {
+import "./EstatisticasDoSistema.css"
+
+
+function EstatisticasDoSistema() {
   return (
     <div className='estatisticas-container'>
-    <div className="estatisticas-card">
-      <h3 className="estatisticas-titulo">{titulo}</h3>
-      <p className="estatisticas-valor">{valor}</p>
+      <h1 className='estatisticas-titulo'>Estatisticas Do Sistema</h1>
+    <div className="card-container">
+    <div className='card'>
+    <h1> Card</h1>
+    <h3>pacientes</h3>
+    </div>
+      <div className='card'>
+    <h1>Card</h1> 
+    <h3>consultas</h3>
+      </div>
+      <div className='card'>
+        <h1>Card</h1>
+        <h3>exames</h3>
+      </div>
     </div>
     </div>
-  );
+  
+);
+
 }
-EstatisticasDoSistema.propTypes ={
-    titulo: PropTypes.string.isRequired,
-    valor:PropTypes.number.isRequired
-}
+
 export default EstatisticasDoSistema;
