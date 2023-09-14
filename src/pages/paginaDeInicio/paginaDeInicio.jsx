@@ -3,6 +3,7 @@ import Toolbar from "../../components/Toolbar/Toolbar";
 import imgUser from "../../assets/images/img-user.png";
 import EstatisticasDoSistema from "../../components/EstatisticasDoSistema/EstatisticasDoSistema";
 import InformacoesRapidasDoPaciente from "../../components/InformacoesRapidasDoPacientes/InformacoesRapidas";
+import InformacionesPacientesCard from "../../components/InfoPacientesCard/InfoPacientesCard";
 
 
 
@@ -14,6 +15,7 @@ function PaginaDeInicio(){
         <LateralMenu />
         <EstatisticasDoSistema />
         <InformacoesRapidasDoPaciente />
+        <InformacionesPacientesCard />
     </div>
     )
 }
