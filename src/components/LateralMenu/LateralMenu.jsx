@@ -7,14 +7,14 @@ const menuData = [
   {
     group: "Geral",
     items: [
-      { label: "INICIO", path: "/inicio" },
+      { label: "INICIO", path: "/inicio",},
       { label: "SAIR", path: "/sair" },
     ],
   },
   {
     group: "Recientes",
     items: [
-      { label: "CADASTRAR", path: "/cadastrar" },
+      { label: "CADASTRAR", path: "/cadastroPacientes" },
       { label: "LISTAR PRONTUARIO", path: "/listar-prontuario" },
     ],
   },
