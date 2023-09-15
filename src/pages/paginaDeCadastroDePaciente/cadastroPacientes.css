@@ -1,0 +1,66 @@
+/* Agrega este CSS en tu archivo "cadastroPacientes.css" */
+
+.container-cadastroPaciente {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 16px;
+    width: 100%;
+    max-width: 1000px; /* Establece un ancho máximo para evitar que el contenedor se extienda demasiado */
+    margin-left: 370px; /* Centra el contenedor horizontalmente en la pantalla */
+    padding: 20px; /* Agrega espacio interno para mejorar la apariencia */
+    
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: #f8f8f8; /* Añade un color de fondo para el contenedor */
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 95px; /* Espacio entre los elementos del formulario */
+    width: 100%; /* Ocupar todo el ancho disponible */
+  }
+  
+  /* Ajusta el estilo de los labels para que no se superpongan con los inputs */
+  .form-group label {
+    width: 100px; /* Ancho mínimo para los labels para darles un tamaño uniforme */
+    font-family: Ubuntu, sans-serif;
+  }
+  
+  /* Estilo para los inputs, selects y textarea */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    flex: 1; /* Ocupar el espacio restante disponible */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 150px;
+  }
+  
+  /* Estilo para los botones */
+  .form-group button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .form-group button:hover {
+    background-color: #0056b3;
+  }
+  
+  .subtitle-cadastro {
+    font-family: Ubuntu, sans-serif;
+    margin-bottom: 50px;
+  }
+  

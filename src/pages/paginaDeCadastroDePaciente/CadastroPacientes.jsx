@@ -2,6 +2,7 @@ import LateralMenu from "../../components/LateralMenu/LateralMenu";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import imgUser from "../../assets/images/img-user.png";
 import { useState } from "react";
+import "./cadastroPacientes.css";
 
 function CadastroPacientes() {
   const [formData, setFormData] = useState({
@@ -25,9 +26,14 @@ function CadastroPacientes() {
     setText(newText);
 
     if (newText.length <= minLengthTextArea || newText.length >= maxLength) {
-      setErrors({ ...errors, naturalidade: alert(`Debe tener entre ${minLengthTextArea} y ${maxLength} caracteres`) });
+      setErrors({
+        ...errors,
+        naturalidade: alert(
+          `Debe tener entre ${minLengthTextArea} y ${maxLength} caracteres`
+        ),
+      });
     } else {
-      setErrors({ ...errors, naturalidade: null }); 
+      setErrors({ ...errors, naturalidade: null });
     }
   };
 
@@ -46,159 +52,133 @@ function CadastroPacientes() {
         validationErrors[field] = "Campo obrigatório";
       }
     }
-   
+
     const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
     if (!cpfRegex.test(formData.cpf)) {
       validationErrors.cpf = "CPF inválido";
     }
-
-
-   
   };
   return (
-    <div className="container-cadastroPaciente">
+    <div>
       <Toolbar
         pageTitle="Cadastro Do Paciente"
         userImage={imgUser}
         userName="lola"
       />
       <LateralMenu />
-      <div>
-      <h1> Preencha os campos para cadastrar</h1>
-      <h2>Cadastro de Paciente</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="nomeCompleto">Nome Completo:</label>
-          <input
-            type="text"
-            id="nomeCompleto"
-            name="nomeCompleto"
-            value={formData.nomeCompleto}
-            onChange={handleInputChange}
-            required
-          />
-          {errors.nomeCompleto && (
-            <span className="error">{errors.nomeCompleto}</span>
-          )}
-        </div>
-        <div>
-          <label htmlFor="genero">Gênero:</label>
-          <select
-            id="genero"
-            name="genero"
-            value={formData.genero}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Selecione</option>
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-            <option value="outro">Outro</option>
-          </select>
-          {errors.genero && <span className="error">{errors.genero}</span>}
-        </div>
-        <div>
-          <label>Data Nascimento:</label>
-          <input type="month" />
-        </div>
-        <div>
-          <label>Cpf:</label>
-          <input type="number" />
-        </div>
-        <div>
-          <label>RG:</label>
-          <input type="text" />
-        </div>
-        <div>
-          <label>Estado Civil:</label>
-          <select>
-            <option value="">Selecione</option>
-            <option value="casado">Casado</option>
-            <option value="solteiro">Solteiro</option>
-            <option value="separado">Separado</option>
-            <option value="divorciado">Divorciado</option>
-            <option value="viúvo">Viúvo</option>
-            <option value="outro">Outro</option>
-          </select>
-        </div>
-        <div>
-          <label>Telefone:</label>
-          <input type="tel"></input>
-        </div>
-        <div>
-          <label>Naturalidade:</label>
-          <textarea
-            value={text}
-            onChange={handleTextChange}
-            placeholder={`Máximo de ${maxLength} caracteres`}
-            rows="4"
-            cols="50"
-          ></textarea>
-        </div>
-        <div>
-            <label>Contato de emergencia</label>
-            <input 
-            type='number'>
-            </input>
-        </div>
-        <div>
-            <h2> Convênio </h2>
-        <div>
-            <label> Convênio</label>
-            <input type="text" 
+      <div className="container-cadastroPaciente">
+        <h1> Preencha os campos para cadastrar</h1>
+      
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <h2 className="subtitle-cadastro">Identificação</h2>
+            <label htmlFor="nomeCompleto">Nome Completo:
+            <input
+              type="text"
+              id="nomeCompleto"
+              name="nomeCompleto"
+              value={formData.nomeCompleto}
+              onChange={handleInputChange}
+              required
             />
-            <label> Numero de Carteira</label>
-            <input type="number" 
-            />
-            <label>
-                Validade
+            {errors.nomeCompleto && (
+              <span className="error">{errors.nomeCompleto}</span>
+            )}
             </label>
-            <input type='number'/>
+            <label htmlFor="genero">Gênero:
+            <select
+              id="genero"
+              name="genero"
+              value={formData.genero}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Selecione</option>
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+              <option value="outro">Outro</option>
+            </select>
+            {errors.genero && <span className="error">{errors.genero}</span>}
+</label>
+            <label>Data Nascimento:
+            <input type="month" />
+</label>
+            <label>Cpf:
+            <input type="number" />
+</label>
+            <label>RG:
+            <input type="text" />
+              </label>
+            <label>Estado Civil:
+            <select>
+              <option value="">Selecione</option>
+              <option value="casado">Casado</option>
+              <option value="solteiro">Solteiro</option>
+              <option value="separado">Separado</option>
+              <option value="divorciado">Divorciado</option>
+              <option value="viúvo">Viúvo</option>
+              <option value="outro">Outro</option>
+            </select>
+</label>
+            <label>Telefone:
+            <input type="tel"></input>
+</label>
+            <label>Naturalidade:
+            <textarea
+              value={text}
+              onChange={handleTextChange}
+              placeholder={`Máximo de ${maxLength} caracteres`}
+              rows="4"
+              cols="50"
+            ></textarea>
+            </label>
+          </div>
+
+          <div className="form-group">
+            <h2 className="subtitle-cadastro"> Convênio </h2>
+            <label> Convênio:
+            <input type="text" />
+            </label>
+            <label> Numero de Carteira:
+            <input type="number" />
+            </label>
+            <label>Validade:
+            <input type="number" />
+            </label>
+          </div>
+          <div className="form-group">
+            <h2 className="subtitle-cadastro">Dados de endereço</h2>
+
+            <label>CEP:
+            <input type="number" />
+            </label>
+            <label> Cidade:
+            <input type="text" />
+            </label>
+            <label> Estado: 
+            <input type="text" />
+            </label>
+            <label> Logradouro: 
+            <input type="text" />
+            </label>
+            <label> Numero:
+            <input type="number" />
+            </label>
+            <label> Complemento: 
+            <input type="text" />
+            </label>
+            <label> Bairro: 
+            <input type="text" />
+            </label>
+            <label> Ponto de referencia: 
+            <input type="text" />
+            </label>
+            <button type="submit">Salvar</button>
+          </div>
+        </form>
         </div>
-        <div>
-            <h2>Dados de endereço</h2>
-            <div>
-                <label>CEP</label>
-                <input 
-                type='number'
-                />
-                <label> Cidade </label>
-                <input 
-                type='text'
-                />
-                <label> Estado </label>
-                <input 
-                type='text'
-                />
-                <label> Logradouro </label>
-                <input 
-                type='text'
-                />
-                <label> Numero </label>
-                <input 
-                type='number'
-                />
-                <label> Complemento </label>
-                <input 
-                type='text'
-                />
-                <label> Bairro </label>
-                <input 
-                type='text'
-                />
-                <label> Ponto de referencia </label>
-                <input 
-                type='text'
-                />
-            </div>
-        </div>
-        </div>
-        <div>
-          <button type="submit">Salvar</button>
-        </div>
-      </form>
       </div>
-    </div>
+   
   );
 }
 
