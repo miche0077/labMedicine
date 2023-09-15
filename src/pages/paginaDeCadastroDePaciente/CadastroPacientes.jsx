@@ -68,117 +68,144 @@ function CadastroPacientes() {
       <LateralMenu />
       <div className="container-cadastroPaciente">
         <h1> Preencha os campos para cadastrar</h1>
-      
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <h2 className="subtitle-cadastro">Identificação</h2>
-            <label htmlFor="nomeCompleto">Nome Completo:
-            <input
-              type="text"
-              id="nomeCompleto"
-              name="nomeCompleto"
-              value={formData.nomeCompleto}
-              onChange={handleInputChange}
-              required
-            />
-            {errors.nomeCompleto && (
-              <span className="error">{errors.nomeCompleto}</span>
-            )}
+            <label htmlFor="nomeCompleto">
+              Nome Completo:
+              <input
+                type="text"
+                id="nomeCompleto"
+                name="nomeCompleto"
+                value={formData.nomeCompleto}
+                onChange={handleInputChange}
+                required
+              />
+              {errors.nomeCompleto && (
+                <span className="error">{errors.nomeCompleto}</span>
+              )}
             </label>
-            <label htmlFor="genero">Gênero:
-            <select
-              id="genero"
-              name="genero"
-              value={formData.genero}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">Selecione</option>
-              <option value="masculino">Masculino</option>
-              <option value="feminino">Feminino</option>
-              <option value="outro">Outro</option>
-            </select>
-            {errors.genero && <span className="error">{errors.genero}</span>}
-</label>
-            <label>Data Nascimento:
-            <input type="month" />
-</label>
-            <label>Cpf:
-            <input type="number" />
-</label>
-            <label>RG:
-            <input type="text" />
-              </label>
-            <label>Estado Civil:
-            <select>
-              <option value="">Selecione</option>
-              <option value="casado">Casado</option>
-              <option value="solteiro">Solteiro</option>
-              <option value="separado">Separado</option>
-              <option value="divorciado">Divorciado</option>
-              <option value="viúvo">Viúvo</option>
-              <option value="outro">Outro</option>
-            </select>
-</label>
-            <label>Telefone:
-            <input type="tel"></input>
-</label>
-            <label>Naturalidade:
-            <textarea
-              value={text}
-              onChange={handleTextChange}
-              placeholder={`Máximo de ${maxLength} caracteres`}
-              rows="4"
-              cols="50"
-            ></textarea>
+            <label htmlFor="genero">
+              Gênero:
+              <select
+                id="genero"
+                name="genero"
+                value={formData.genero}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="">Selecione</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+              </select>
+              {errors.genero && <span className="error">{errors.genero}</span>}
+            </label>
+            <label>
+              Data Nascimento:
+              <input type="month" />
+            </label>
+            <label>
+              Cpf:
+              <input type="number" />
+            </label>
+            <label>
+              RG:
+              <input type="text" />
+            </label>
+            <label>
+              Estado Civil:
+              <select>
+                <option value="">Selecione</option>
+                <option value="casado">Casado</option>
+                <option value="solteiro">Solteiro</option>
+                <option value="separado">Separado</option>
+                <option value="divorciado">Divorciado</option>
+                <option value="viúvo">Viúvo</option>
+                <option value="outro">Outro</option>
+              </select>
+            </label>
+            <label>
+              Telefone:
+              <input type="tel"></input>
+            </label>
+            <label>
+              Naturalidade:
+              <textarea
+                value={text}
+                onChange={handleTextChange}
+                placeholder={`Máximo de ${maxLength} caracteres`}
+                rows="4"
+                cols="50"
+              ></textarea>
             </label>
           </div>
 
           <div className="form-group">
             <h2 className="subtitle-cadastro"> Convênio </h2>
-            <label> Convênio:
-            <input type="text" />
+            <label>
+              {" "}
+              Convênio:
+              <input type="text" />
             </label>
-            <label> Numero de Carteira:
-            <input type="number" />
+            <label>
+              {" "}
+              Numero de Carteira:
+              <input type="number" />
             </label>
-            <label>Validade:
-            <input type="number" />
+            <label>
+              Validade:
+              <input type="number" />
             </label>
           </div>
           <div className="form-group">
             <h2 className="subtitle-cadastro">Dados de endereço</h2>
 
-            <label>CEP:
-            <input type="number" />
+            <label>
+              CEP:
+              <input type="number" />
             </label>
-            <label> Cidade:
-            <input type="text" />
+            <label>
+              {" "}
+              Cidade:
+              <input type="text" />
             </label>
-            <label> Estado: 
-            <input type="text" />
+            <label>
+              {" "}
+              Estado:
+              <input type="text" />
             </label>
-            <label> Logradouro: 
-            <input type="text" />
+            <label>
+              {" "}
+              Logradouro:
+              <input type="text" />
             </label>
-            <label> Numero:
-            <input type="number" />
+            <label>
+              {" "}
+              Numero:
+              <input type="number" />
             </label>
-            <label> Complemento: 
-            <input type="text" />
+            <label>
+              {" "}
+              Complemento:
+              <input type="text" />
             </label>
-            <label> Bairro: 
-            <input type="text" />
+            <label>
+              {" "}
+              Bairro:
+              <input type="text" />
             </label>
-            <label> Ponto de referencia: 
-            <input type="text" />
+            <label>
+              {" "}
+              Ponto de referencia:
+              <input type="text" />
             </label>
             <button type="submit">Salvar</button>
           </div>
         </form>
-        </div>
       </div>
-   
+    </div>
   );
 }
 

@@ -14,14 +14,14 @@ const menuData = [
   {
     group: "Recientes",
     items: [
-      { label: "CADASTRAR", path: "/cadastroPacientes" },
+      { label: "CADASTRAR PACIENTE", path: "/cadastroPacientes" },
       { label: "LISTAR PRONTUARIO", path: "/listar-prontuario" },
     ],
   },
   {
     group: "Exames",
     items: [
-      { label: "CADASTRAR CONSULTA", path: "/cadastrar-consulta" },
+      { label: "CADASTRAR CONSULTA", path: "/cadastrarConsulta" },
       { label: "CADASTAR EXAME", path: "/cadastrar-exame" },
     ],
   },
