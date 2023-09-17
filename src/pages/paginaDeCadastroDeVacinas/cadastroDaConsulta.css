@@ -5,6 +5,7 @@
     align-items: center;
     min-height: 100vh; 
     margin-top: -30px;
+    color: #396a52;
   }
   
   
@@ -15,25 +16,27 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
     padding: 20px;
     width: 1000px;
-    height: 600px; 
+    height: 500px; 
     text-align: center;
     display: inline-flex;
     text-align: center;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-left: 350px;
-    
+    margin-left: 135px;
+    font-family: Ubuntu, sans-serif;
+    font-size: 15px;
   }
   .form-group-consulta{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    
+    font-family: Ubuntu, sans-serif;
+    font-size: 15px;
   }
 
   .form-box h1 {
-    font-size: 24px; 
+    font-size: 30px; 
     margin-bottom: 20px; 
   }
   
@@ -50,18 +53,22 @@
     height: 20px;
     padding: 10px; 
     margin-bottom: 16px; 
-    border: 1px solid #ccc; 
+    border: 1px solid; 
     border-radius: 6px; 
     font-size: 16px; 
+    color: #68947e;
+    border-color: #7bd1a7;
   }
   
   .form-box button {
-    background-color: #007bff; 
+    background-color:#68947e; 
     color: #fff; 
     border: none; 
-    border-radius: 6px; 
-    padding: 12px 20px; 
-    font-size: 18px; 
+    border-radius: 13px; 
+    padding: 12px 30px; 
+    font-size: 15px;
+    width: 135px; 
+    height: 60px;
     cursor: pointer; 
   }
   
@@ -72,8 +79,13 @@
   .title-cadastro-consulta{
     font-family: Ubuntu, sans-serif;
     display: flex;
-    margin-left: -200px;
     justify-content: space-around;
-    margin-left: -200px;
     flex-direction: row;
+    margin-top: 10px;
+  
+  }
+  .btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }

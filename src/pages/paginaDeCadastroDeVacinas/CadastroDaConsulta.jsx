@@ -62,11 +62,12 @@ function CadastroDaConsulta() {
       />
       <LateralMenu />
       <InformacoesRapidasDoPaciente />
-     <h1 className="title-cadastro-consulta">Formulário de Consulta Médica</h1>
+    
       <div className="form-container">
         
         <form onSubmit={handleSubmit} className="form-box">
-          <div className="form-group-consulta">
+           <h1 className="title-cadastro-consulta">Consulta de </h1>
+           <div className="form-group-consulta">
             <label htmlFor="motivoConsulta">Motivo da Consulta:</label>
             <textarea
               id="motivoConsulta"
@@ -123,7 +124,7 @@ function CadastroDaConsulta() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="btn-container">
             <button type="submit">Enviar Consulta</button>
           </div>
         </form>
