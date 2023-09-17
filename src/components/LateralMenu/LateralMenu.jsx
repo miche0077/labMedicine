@@ -7,22 +7,22 @@ const menuData = [
   {
     group: "Geral",
     items: [
-      { label: "INICIO", path: "/inicio",},
-      { label: "SAIR", path: "/sair" },
+      { label: "INICIO", path: "/paginaDeInicio",},
+      { label: "SAIR", path: "/login" },
     ],
   },
   {
-    group: "Recientes",
+    group: "Cadastros",
     items: [
       { label: "CADASTRAR PACIENTE", path: "/cadastroPacientes" },
-      { label: "LISTAR PRONTUARIO", path: "/listar-prontuario" },
+      { label: "CADASTRAR VACINAS",path: "/cadastrarVacinas"  },
     ],
   },
   {
     group: "Exames",
     items: [
-      { label: "CADASTRAR CONSULTA", path: "/cadastrarConsulta" },
-      { label: "CADASTAR EXAME", path: "/cadastrar-exame" },
+      { label: "LISTAGEM DE HISTORICO DE APP", path: "/listagemDeHistoricoApp" },
+      { label: "DETALHAMENTO DO HISTORICO DE APP", path: "/detalhamentoHistoricoApp" },
     ],
   },
 ];

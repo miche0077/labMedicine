@@ -33,8 +33,10 @@
     flex-wrap: nowrap;
     font-family: Ubuntu, sans-serif;
     font-size: 15px;
+   
+    
   }
-
+ 
   .form-box h1 {
     font-size: 30px; 
     margin-bottom: 20px; 
@@ -43,8 +45,10 @@
   .form-box label {
     display: block;
     margin-bottom: 6px; 
+    margin-right: 10px;
+    margin-left: 10px;
   }
-  
+
   .form-box input[type="text"],
   .form-box input[type="date"],
   .form-box input[type="time"],
@@ -59,7 +63,16 @@
     color: #68947e;
     border-color: #7bd1a7;
   }
-  
+  #quantidadeAplicada{
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
+    border: 1px solid; 
+    border-radius: 6px; 
+    color: #68947e;
+    border-color: #7bd1a7;
+    margin-bottom: 16px;
+  }
   .form-box button {
     background-color:#68947e; 
     color: #fff; 

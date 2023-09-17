@@ -67,7 +67,7 @@ function CadastroPacientes() {
       />
       <LateralMenu />
       <div className="container-cadastroPaciente">
-        <h1> Preencha os campos para cadastrar</h1>
+        <h1> Preencha os campos para cadastrar paciente</h1>
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">

@@ -3,7 +3,12 @@ import Login from "./components/login/login";
 import CriarConta from "./components/CriarConta/CriarConta";
 import PaginaDeInicio from "./pages/paginaDeInicio/PaginaDeInicio";
 import CadastroPacientes from "./pages/paginaDeCadastroDePaciente/CadastroPacientes";
-import CadastroDaConsulta from "./pages/paginaDeCadastroDeVacinas/CadastroDaConsulta";
+import CadastroDaConsulta from "./pages/paginaDeCadastroDeVacinas/CadastroDasVacinas";
+import ListarProntuario from "./pages/paginaDeListagemDeHistoricoApp/PaginaListagemHistoricoDeApp.jsx.jsx";
+import CadastroDasVacinas from "./pages/paginaDeCadastroDeVacinas/CadastroDasVacinas";
+import PaginaDeÇListagemHistoricoApp from "./pages/paginaDeListagemDeHistoricoApp/PaginaListagemHistoricoDeApp.jsx.jsx";
+import PaginaDeListagemHistoricoApp from "./pages/paginaDeListagemDeHistoricoApp/PaginaListagemHistoricoDeApp.jsx.jsx";
+import DetalhamentoHistoricoApp from "./pages/PaginaDetalhamentoHistoricoApp.jsx/DetalhamentoHistoricoApp";
 
 function App() {
   return (
@@ -13,7 +18,9 @@ function App() {
         <Route path="/CriarConta" element={<CriarConta />} />
         <Route path="/paginaDeInicio" element={<PaginaDeInicio />} />
         <Route path="/cadastroPacientes" element={<CadastroPacientes />} />
-        <Route path="/cadastrarConsulta" element={< CadastroDaConsulta />}/>
+        <Route path="/cadastrarVacinas" element={< CadastroDasVacinas />}/>
+        <Route path="/listagemDeHistoricoApp" element={<PaginaDeListagemHistoricoApp />}/>
+        <Route path="/detalhamentoHistoricoApp" element={<DetalhamentoHistoricoApp />}/>
       </Routes>
     
     </div>
