@@ -23,7 +23,12 @@
   .card-tel {
     color: #007bff
   }
-  
+  .card-container{
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
  .ver-mas{
     text-decoration: none;
     color: #007bff; 
@@ -35,4 +40,8 @@
   .ver-mas:hover {
     text-decoration: none; 
   }
-  
+  .no-exist{
+    font-family: Ubuntu, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+  }
