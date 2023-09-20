@@ -1,29 +1,31 @@
 import PropTypes from 'prop-types';
 
+function HistoricoDeVacinas({ historico }) {
+  if (!historico || historico.length === 0) {
+    return <div>Não possui historico de vacinas disponivel.</div>;
+  }
 
-function HistoricoDeVacinas({historico}){
-
-    return(
-        <div>
-        <h2>Histórico de Vacinas</h2>
-        <ul>
-          {historico.map((vacina, index) => (
-            <li key={index}>
-              <strong>{vacina.nomeDaVacina}</strong> - Data da Aplicação:{" "}
-              {vacina.dataDaAplicacao}
-            </li>
-          ))}
-        </ul>
-      </div>
-    )
+  return (
+    <div>
+      <h2>Histórico de Vacunas</h2>
+      <ul>
+        {historico.map((vacinas, index) => (
+          <li key={index}>
+            <p>{vacinas.nomeDaVacina}</p> - Data da Aplicação: {vacinas.dataDaAplicacao}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
+
+HistoricoDeVacinas.propTypes = {
+  historico: PropTypes.arrayOf(
+    PropTypes.shape({
+      nomeDaVacina: PropTypes.string.isRequired,
+      dataDaAplicacao: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
 export default HistoricoDeVacinas;
-
-HistoricoDeVacinas.propTypes ={
-    historico: PropTypes.arrayOf(
-        PropTypes.shape({
-          nomeDaVacina: PropTypes.string.isRequired, 
-          dataDaAplicacao: PropTypes.string.isRequired, 
-        })
-      ).isRequired,
-}

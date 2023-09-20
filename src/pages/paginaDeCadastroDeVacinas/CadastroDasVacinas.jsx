@@ -24,8 +24,9 @@ function CadastroDasVacinas() {
   const [selectedVacinaIndex, setSelectedVacinaIndex] = useState(null);
   const [vacinaSelecionada, setVacinaSelecionada] = useState(null);
 
+
+  
   const guardarVacinasEnLocalStorage = (vacinas) => {
-    console.log("Guardando vacunas en localStorage:", vacinas);
     localStorage.setItem("vacinas", JSON.stringify(vacinas));
   };
  
@@ -36,11 +37,11 @@ function CadastroDasVacinas() {
         const parsedVacinas = JSON.parse(vacinasFromLocalStorage);
         setVacinas(parsedVacinas);
       } catch (error) {
-        console.error("Error al analizar los datos de 'vacinas' desde localStorage:", error);
+        console.error("Erro ao analizar os datos de 'vacinas' desde localStorage:", error);
          setVacinas([]);
       }
     } else {
-      console.log("No hay datos en localStorage para 'vacinas'. Puedes manejarlo aquí.");
+   
       
        setVacinas([]);
     }
@@ -51,12 +52,12 @@ function CadastroDasVacinas() {
         const parsedPacientes = JSON.parse(pacientesFromLocalStorage);
         setPacientes(parsedPacientes);
       } catch (error) {
-        console.error("Error al analizar los datos de 'pacientes' desde localStorage:", error);
+       
         
         setPacientes([]);
       }
     } else {
-      console.log("No hay datos en localStorage para 'pacientes'. Puedes manejarlo aquí.");
+
       
       setPacientes([]);
     }
@@ -85,10 +86,10 @@ function CadastroDasVacinas() {
     if (formData.nomeDaVacina.length < 6 || formData.nomeDaVacina.length > 80) {
       validationErrors.nomeDaVacina = "Nome da vacina deve ter entre 6 e 80 caracteres";
       setErrors(validationErrors);
-      return; // Evita continuar si hay errores de validación
+      return; 
     }
   
-    // Resto de tus validaciones aquí...
+   
   
     if (Object.keys(validationErrors).length === 0) {
       const novaVacina = {
@@ -96,10 +97,9 @@ function CadastroDasVacinas() {
         ...formData,
       };
   
-      // Primero actualiza el estado de las vacunas
+    
       setVacinas([...vacinas, novaVacina]);
-  
-      // Luego, guarda en localStorage
+      
       guardarVacinasEnLocalStorage([...vacinas, novaVacina]);
   
       setFormData({
@@ -174,7 +174,7 @@ function CadastroDasVacinas() {
   return (
     <div>
       <Toolbar
-        pageTitle="Cadastro Da Consulta"
+        pageTitle="Cadastro Da Vacinas"
         userName="lola"
         userImage={userImg}
       />
@@ -260,7 +260,7 @@ function CadastroDasVacinas() {
               <button 
               type="submit"  
               name="salvar"
-              >Enviar Consulta</button>
+              >Cadastrar vacina</button>
             )}
           </div>
         </form>

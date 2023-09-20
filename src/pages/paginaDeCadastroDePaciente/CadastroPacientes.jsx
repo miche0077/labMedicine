@@ -284,7 +284,7 @@ console.error('Erro ao obter dados de endereço', error)
             <label>
               Validade:
               <input 
-              type="number"
+              type="date"
               id="validade"
               name="validade"
               value={formData.validade}
