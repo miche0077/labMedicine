@@ -31,8 +31,8 @@ Para executar o Front-End do LABVaccine localmente, siga estas etapas:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/labvaccine-frontend.git
-   cd labvaccine-frontend
+   git clone https://github.com/miche0077/labMedicine.git
+   cd labMedicine
    ```
 
 2. Instale as dependências:
