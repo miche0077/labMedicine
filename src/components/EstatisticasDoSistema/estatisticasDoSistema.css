@@ -20,6 +20,9 @@
   margin-right: -70px;
   margin-left: 100px;
  cursor: pointer;
+ font-family: Ubuntu, sans-serif;
+ font-size: 15px;
+ color: black;
  }
   .estatisticas-titulo {
     font-size: 26px;

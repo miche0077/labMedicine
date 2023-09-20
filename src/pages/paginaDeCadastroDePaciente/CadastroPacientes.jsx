@@ -4,7 +4,7 @@ import imgUser from "../../assets/images/img-user.png";
 import { useState, useEffect } from "react";
 import "./cadastroPacientes.css";
 import axios from "axios";
-
+import { v4 as uuidv4 } from 'uuid';
 
 function CadastroPacientes() {
   const [formData, setFormData] = useState({
@@ -57,9 +57,11 @@ const handleEditPacientes = (id) => {
   );
   setPacientes(updatePacientes);
 }
-const handleSavePacientes = (dataToSave) =>{
+const handleSavePacientes = (dataPaciente) =>{
 
-  const updatedPacientes = [...pacientes, dataToSave];
+  dataPaciente.id = uuidv4();
+
+  const updatedPacientes = [...pacientes, dataPaciente]
   
   setPacientes(updatedPacientes);
 

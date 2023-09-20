@@ -124,3 +124,9 @@
     font-family: Ubuntu, sans-serif;
     color: #68947e
   }
+  #vacina-icon,
+  #paciente-icon{
+    width: 90px;
+    height: 60px;
+  } 
+  
