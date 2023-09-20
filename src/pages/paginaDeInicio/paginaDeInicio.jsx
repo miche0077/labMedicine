@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 
 function PaginaDeInicio(){
 const [pacientes, setPacientes] = useState([]);  
-const [searchResults, setSearchResults] = useState([]);
+const [searchResults] = useState([]);
 
 
 useEffect(() => {

@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LateralMenu from "../../components/LateralMenu/LateralMenu";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import userImg from "../../assets/images/img-user.png";
 import "./cadastroDasVacinas.css";
 import InformacoesRapidasDoPaciente from "../../components/InformacoesRapidasDoPacientes/InformacoesRapidas";
+import InformacoesPacientesCard from "../../components/InfoPacientesCard/InfoPacientesCard";
 
 function CadastroDasVacinas() {
   const [formData, setFormData] = useState({
@@ -15,7 +16,57 @@ function CadastroDasVacinas() {
     observacoes: "",
   });
 
+  const [pacientes, setPacientes] = useState([]);
+  const [searchResults] = useState([]);
   const [errors, setErrors] = useState({});
+  const [vacinas, setVacinas] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [selectedVacinaIndex, setSelectedVacinaIndex] = useState(null);
+  const [vacinaSelecionada, setVacinaSelecionada] = useState(null);
+
+  const guardarVacinasEnLocalStorage = (vacinas) => {
+    console.log("Guardando vacunas en localStorage:", vacinas);
+    localStorage.setItem("vacinas", JSON.stringify(vacinas));
+  };
+ 
+  useEffect(() => {
+    const vacinasFromLocalStorage = localStorage.getItem("vacinas");
+    if (vacinasFromLocalStorage) {
+      try {
+        const parsedVacinas = JSON.parse(vacinasFromLocalStorage);
+        setVacinas(parsedVacinas);
+      } catch (error) {
+        console.error("Error al analizar los datos de 'vacinas' desde localStorage:", error);
+         setVacinas([]);
+      }
+    } else {
+      console.log("No hay datos en localStorage para 'vacinas'. Puedes manejarlo aquí.");
+      
+       setVacinas([]);
+    }
+  
+    const pacientesFromLocalStorage = localStorage.getItem("pacientes");
+    if (pacientesFromLocalStorage) {
+      try {
+        const parsedPacientes = JSON.parse(pacientesFromLocalStorage);
+        setPacientes(parsedPacientes);
+      } catch (error) {
+        console.error("Error al analizar los datos de 'pacientes' desde localStorage:", error);
+        
+        setPacientes([]);
+      }
+    } else {
+      console.log("No hay datos en localStorage para 'pacientes'. Puedes manejarlo aquí.");
+      
+      setPacientes([]);
+    }
+  }, []);
+  
+
+  useEffect(() => {
+    
+    guardarVacinasEnLocalStorage(vacinas);
+  }, [vacinas]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,34 +80,97 @@ function CadastroDasVacinas() {
     e.preventDefault();
   
     const validationErrors = {};
+    setErrors(validationErrors);
   
     if (formData.nomeDaVacina.length < 6 || formData.nomeDaVacina.length > 80) {
       validationErrors.nomeDaVacina = "Nome da vacina deve ter entre 6 e 80 caracteres";
+      setErrors(validationErrors);
+      return; // Evita continuar si hay errores de validación
     }
   
-    if (
-      formData.laboratorioDaVacina.length < 8 ||
-      formData.laboratorioDaVacina.length > 80
-    ) {
-      validationErrors.laboratorioDaVacina =
-        "Laboratorio da vacina deve ter entre 8 e 80 caracteres";
-    }
-  
-    if (formData.observacoes.length < 8 || formData.observacoes.length > 8000) {
-      validationErrors.observacoes =
-        "Observações deve ter entre 8 e 8000 caracteres";
-    }
-  
-    if (parseFloat(formData.quantidadeAplicada) < 0.01) {
-      validationErrors.quantidadeAplicada = "La cantidad debe ser mayor que 0.01";
-    }
-  
-    setErrors(validationErrors);
+    // Resto de tus validaciones aquí...
   
     if (Object.keys(validationErrors).length === 0) {
-      console.log("Dados do formulário enviados:", formData);
+      const novaVacina = {
+        id: vacinas.length + 1,
+        ...formData,
+      };
+  
+      // Primero actualiza el estado de las vacunas
+      setVacinas([...vacinas, novaVacina]);
+  
+      // Luego, guarda en localStorage
+      guardarVacinasEnLocalStorage([...vacinas, novaVacina]);
+  
+      setFormData({
+        nomeDaVacina: "",
+        laboratorioDaVacina: "",
+        dataDaAplicacao: new Date().toISOString().slice(0, 10),
+        horarioAplicacao: new Date().toTimeString().slice(0, 5),
+        quantidadeAplicada: "",
+        observacoes: "",
+      });
     }
   };
+  
+
+  const handleExcluir = (index) => {
+    const novasVacinas = [...vacinas];
+    novasVacinas.splice(index, 1);
+    setVacinas(novasVacinas);
+    
+    setFormData({
+      nomeDaVacina: "",
+      laboratorioDaVacina: "",
+      dataDaAplicacao: new Date().toISOString().slice(0, 10),
+      horarioAplicacao: new Date().toTimeString().slice(0, 5),
+      quantidadeAplicada: "",
+      observacoes: "",
+    });
+  };
+
+  
+  const handleEditar = (index) => {
+    setIsEditing(true);
+    setSelectedVacinaIndex(index);
+    setVacinaSelecionada(vacinas[index]);
+  };
+
+  
+  const handleSalvar = () => {
+    const novasVacinas = [...vacinas];
+    novasVacinas[selectedVacinaIndex] = vacinaSelecionada;
+    setVacinas(novasVacinas);
+    setIsEditing(false);
+    setSelectedVacinaIndex(null);
+    setVacinaSelecionada(null);
+ 
+    setFormData({
+      nomeDaVacina: "",
+      laboratorioDaVacina: "",
+      dataDaAplicacao: new Date().toISOString().slice(0, 10),
+      horarioAplicacao: new Date().toTimeString().slice(0, 5),
+      quantidadeAplicada: "",
+      observacoes: "",
+    });
+  };
+
+  
+  const handleCancelar = () => {
+    setIsEditing(false);
+    setSelectedVacinaIndex(null);
+    setVacinaSelecionada(null);
+    
+    setFormData({
+      nomeDaVacina: "",
+      laboratorioDaVacina: "",
+      dataDaAplicacao: new Date().toISOString().slice(0, 10),
+      horarioAplicacao: new Date().toTimeString().slice(0, 5),
+      quantidadeAplicada: "",
+      observacoes: "",
+    });
+  };
+
   return (
     <div>
       <Toolbar
@@ -65,11 +179,11 @@ function CadastroDasVacinas() {
         userImage={userImg}
       />
       <LateralMenu />
-      <InformacoesRapidasDoPaciente />
-
+      <InformacoesRapidasDoPaciente pacientes={pacientes} />
+      <InformacoesPacientesCard searchResults={searchResults} />
       <div className="form-container">
         <form onSubmit={handleSubmit} className="form-box">
-          <h1 className="title-cadastro-consulta">Cadastro de Vacinas </h1>
+          <h1 className="title-cadastro-consulta">Cadastro de Vacinas</h1>
           <div className="form-group-consulta">
             <label htmlFor="nomeDaVacina">Nome da Vacina</label>
             <textarea
@@ -82,7 +196,7 @@ function CadastroDasVacinas() {
             {errors.nomeDaVacina && (
               <span className="error">{errors.nomeDaVacina}</span>
             )}
-            <label htmlFor="laboratorioDaVacina">Laboratorio da vacina</label>
+            <label htmlFor="laboratorioDaVacina">Laboratório da vacina</label>
             <textarea
               id="laboratorioDaVacina"
               name="laboratorioDaVacina"
@@ -90,7 +204,7 @@ function CadastroDasVacinas() {
               onChange={handleChange}
               required
             />
-            <label htmlFor="dataDaAplicacao">Data da Aplicação</label>
+            <label htmlFor="dataAplicacao">Data da Aplicação</label>
             <input
               type="date"
               id="dataAplicacao"
@@ -98,10 +212,7 @@ function CadastroDasVacinas() {
               value={formData.dataDaAplicacao}
               onChange={handleChange}
               required
-             
             />
-
-            
           </div>
           <div className="form-group-consulta">
             <label htmlFor="horarioAplicacao">Horário de Aplicação</label>
@@ -112,7 +223,6 @@ function CadastroDasVacinas() {
               value={formData.horarioAplicacao}
               onChange={handleChange}
               required
-              
             />
             <label htmlFor="quantidadeAplicada">Quantidade Aplicada</label>
             <input
@@ -127,7 +237,6 @@ function CadastroDasVacinas() {
             {errors.quantidadeAplicada && (
               <span className="error">{errors.quantidadeAplicada}</span>
             )}
-          
             <label htmlFor="observacoes">Observações</label>
             <textarea
               id="observacoes"
@@ -138,9 +247,43 @@ function CadastroDasVacinas() {
             />
           </div>
           <div className="btn-container">
-            <button type="submit">Enviar Consulta</button>
+            {isEditing ? (
+              <>
+                <button type="button" onClick={handleSalvar}>
+                  Salvar
+                </button>
+                <button type="button" onClick={handleCancelar}>
+                  Cancelar
+                </button>
+              </>
+            ) : (
+              <button 
+              type="submit"  
+              name="salvar"
+              >Enviar Consulta</button>
+            )}
           </div>
         </form>
+      </div>
+      <div className="vacinas-list">
+        <h2>Lista de Vacinas</h2>
+        {vacinas.length > 0 ? (
+          <ul>
+            {vacinas.map((vacina, index) => (
+              <li key={vacina.id}>
+                {vacina.nomeDaVacina} ({vacina.dataDaAplicacao})
+                <button type="button" onClick={() => handleEditar(index)}>
+                  Editar
+                </button>
+                <button type="button" onClick={() => handleExcluir(index)}>
+                  Excluir
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Não há vacinas registradas.</p>
+        )}
       </div>
     </div>
   );

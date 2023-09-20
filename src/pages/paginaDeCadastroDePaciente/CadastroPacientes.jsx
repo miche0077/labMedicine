@@ -27,7 +27,7 @@ function CadastroPacientes() {
     bairro: "",
   });
   const [pacientes, setPacientes] = useState([]);
-  const [botoesAtivos, setBotoesAtivos] = useState(false);
+  const [botoesAtivos] = useState(false);
   const [errors, setErrors] = useState({});
   const [text, setText] = useState("");
   const minLengthTextArea = 5;
