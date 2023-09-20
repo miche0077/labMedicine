@@ -272,10 +272,10 @@ function CadastroDasVacinas() {
             {vacinas.map((vacina, index) => (
               <li key={vacina.id}>
                 {vacina.nomeDaVacina} ({vacina.dataDaAplicacao})
-                <button type="button" onClick={() => handleEditar(index)}>
+                <button type="button" className="btn-edit" onClick={() => handleEditar(index)}>
                   Editar
                 </button>
-                <button type="button" onClick={() => handleExcluir(index)}>
+                <button type="button" className="btn-excluir" onClick={() => handleExcluir(index)}>
                   Excluir
                 </button>
               </li>

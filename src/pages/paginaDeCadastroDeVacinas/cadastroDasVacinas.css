@@ -102,3 +102,25 @@
     align-items: center;
     justify-content: flex-end;
   }
+  .btn-edit,
+  .btn-excluir{
+    background-color:#68947e; 
+    color: #fff; 
+    border: none; 
+    border-radius: 13px; 
+    padding: 12px 30px; 
+    font-size: 12px;
+    width: 90px; 
+    height: 35px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 10px;
+  }
+  .vacinas-list h2{
+    font-family: Ubuntu, sans-serif;
+    color: #396a52;
+  }
+  .vacinas-list{
+    font-family: Ubuntu, sans-serif;
+    color: #68947e
+  }
