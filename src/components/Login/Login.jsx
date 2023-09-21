@@ -1,6 +1,5 @@
 import {  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import doc from "../../assets/images/doc.png"
 import "./Login.css" 
 
@@ -11,14 +10,14 @@ function validateEmail(email) {
 }
 
 function Login() {
-  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
   const esqueciSenha = () =>{
     alert("função em construção")
   }
   const handleEmailChange =  (e) => {
-    setUserName(e.target.value);
+    setEmail(e.target.value);
   };
   const handleSenhaChange = (e) => {
     setSenha(e.target.value);
@@ -27,22 +26,26 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const isValidEmail = validateEmail(username)
+    const isValidEmail = validateEmail(email)
     if(!isValidEmail){
         alert('email invalido')
         return
     }
     
-    let users = JSON.parse(localStorage.getItem("users"));
-    const user = users.find((u) => u.usermame === username && u.senha === senha);
-    if(user){
-        navigate("/paginaDeInicio")
-    }else{
-        toast.error("Credenciais inválidas, por favor tente novamente")
+    const users = JSON.parse(localStorage.getItem("users"));
+
+    if (users) {
+      const user = users.find((u) => u.email === email && u.senha === senha);
+    
+      if (user) {
+        navigate("/paginaDeInicio");
+      } else {
+        alert("Credenciales inválidas, por favor intente nuevamente");
+      }
     }
   };
 const dadosLogin ={
-    username,
+    email,
     senha
 };
 console.log(dadosLogin)
@@ -62,7 +65,7 @@ console.log(dadosLogin)
           <input
             type="email"
             className="form-input"
-            value={username}
+            value={email}
             onChange={handleEmailChange}
           />
         </div>
