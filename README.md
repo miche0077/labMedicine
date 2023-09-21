@@ -43,15 +43,11 @@ Para executar o Front-End do LABVaccine localmente, siga estas etapas:
 
 3. Inicie o servidor de desenvolvimento:
 
-   ```bash
-   npm start
    ```
-4. Instale react router dom
+   npm run dev
+   ```
 
-```npm install react-router-dom
-```
-
-5. Acesse o aplicativo em seu navegador em `http://localhost:3000`.
+4. Acesse o aplicativo em seu navegador em `http://localhost:3000`.
 
  
 ## Melhorias Futuras
