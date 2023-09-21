@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function InformacoesPacientesCard({ searchResults }) {
  
   if (!searchResults || searchResults.length === 0) {
-    return <div className="no-exist">No hay resultados disponibles.</div>;
+    return <div className="no-exist">Não tem resultados disponiveis.</div>;
   }
 console.log(searchResults)
   return (

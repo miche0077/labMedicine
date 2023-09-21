@@ -61,7 +61,7 @@ console.log(dadosLogin)
       <h2 className="login-title">Login</h2>
       <form className="form-login" onSubmit={handleLogin}>
         <div className="email">
-          <label htmlFor="email" className="form-label">Nome:</label>
+          <label htmlFor="email" className="form-label">Email:</label>
           <input
             type="email"
             className="form-input"
